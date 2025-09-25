@@ -1,25 +1,27 @@
-// app/page.tsx
-"use client"
+"use client";
 
-import { Link } from "@chakra-ui/next-js"
-import SidebarLayout from "./components/Sidebar"
+import { Box } from "@chakra-ui/react";
+import Sidebar from "./components/layout/Sidebar";
+import Header from "./components/layout/Header";
+import AppLayout from "./components/layout/AppRender";
+import AppTable from "./components/AppTable"; // Updated import to match the table we created
 
-export default function Page() {
+export default function DashboardPage() {
   return (
-    <SidebarLayout>
-      <Link
-        href="/about"
-        color="blue.400"
-        fontSize="2xl"
-        _hover={{ color: "blue.500" }}
-        fontWeight="bold"
-      >
-        About
-      </Link>
+    <AppLayout>
+      <Box display="flex">
+        {/* Sidebar */}
+        <Sidebar />
 
-      <p style={{ marginTop: "16px" }}>
-        This is the dashboard main area. You can add your content here.
-      </p>
-    </SidebarLayout>
-  )
+        {/* Main Content */}
+        <Box flex="1" ml={{ base: 0, md: "260px" }}>
+          <Header />
+          <Box p={6}>
+            {/* Task Table */}
+            <AppTable />
+          </Box>
+        </Box>
+      </Box>
+    </AppLayout>
+  );
 }
