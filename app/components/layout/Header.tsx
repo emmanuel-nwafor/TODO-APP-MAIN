@@ -17,6 +17,7 @@ import {
   PopoverBody,
   PopoverArrow,
   Divider,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import {
   FiSearch,
@@ -30,6 +31,9 @@ import {
 } from "react-icons/fi";
 
 export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
+  // show popover for base, sm, md, lg; hide for xl
+  const showPopover = useBreakpointValue({ base: true, sm: true, md: true, lg: true, xl: false });
+
   return (
     <Flex
       as="header"
@@ -65,49 +69,51 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
           </InputGroup>
         </Box>
 
-        {/* Mobile Popover */}
-        <Popover placement="bottom-end">
-          <PopoverTrigger>
-            <Button display={{ base: "flex", md: "none" }}>
-              <FiHome />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent w="fit-content" display={{ base: "flex", md: "none" }}>
-            <PopoverArrow />
-            <PopoverBody>
-              <VStack align="stretch" spacing={3}>
-                {/* Section 1 - icons */}
-                <HStack justify="space-between">
-                  <IconButton aria-label="Home" icon={<FiHome />} />
-                  <IconButton aria-label="User" icon={<FiUser />} />
-                  <IconButton aria-label="Settings" icon={<FiSettings />} />
-                  <IconButton aria-label="Star" icon={<FiStar />} />
-                </HStack>
+        {/* Popover for mobile/tablet/small desktop */}
+        {showPopover && (
+          <Popover placement="bottom-end">
+            <PopoverTrigger>
+              <Button display={{ base: "flex", md: "flex", xl: "none" }}>
+                <FiHome />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent w="fit-content" display={{ base: "flex", md: "flex", xl: "none" }}>
+              <PopoverArrow />
+              <PopoverBody>
+                <VStack align="stretch" spacing={3}>
+                  {/* Section 1 - icons */}
+                  <HStack justify="space-between">
+                    <IconButton aria-label="Home" icon={<FiHome />} />
+                    <IconButton aria-label="User" icon={<FiUser />} />
+                    <IconButton aria-label="Settings" icon={<FiSettings />} />
+                    <IconButton aria-label="Star" icon={<FiStar />} />
+                  </HStack>
 
-                <Divider />
+                  <Divider />
 
-                {/* Section 2 - text buttons */}
-                <VStack spacing={2} align="stretch">
-                  <Button size="sm" bg="#DDA0DD" color={"white"} borderRadius={10}>Melding maken</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} borderRadius={10}>VIM</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} borderRadius={10}>LMS</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} borderRadius={10}>BHV</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} borderRadius={10}>DataLek</Button>
+                  {/* Section 2 - text buttons */}
+                  <VStack spacing={2} align="stretch">
+                    <Button size="sm" bg="#DDA0DD" color="white" borderRadius={10}>Melding maken</Button>
+                    <Button size="sm" bg="teal" color="white" borderRadius={10}>VIM</Button>
+                    <Button size="sm" bg="teal" color="white" borderRadius={10}>LMS</Button>
+                    <Button size="sm" bg="teal" color="white" borderRadius={10}>BHV</Button>
+                    <Button size="sm" bg="teal" color="white" borderRadius={10}>DataLek</Button>
+                  </VStack>
+
+                  <Divider />
+
+                  {/* Section 3 - link button */}
+                  <Button leftIcon={<FiLink />} size="sm">
+                    Link
+                  </Button>
                 </VStack>
-
-                <Divider />
-
-                {/* Section 3 - link button */}
-                <Button leftIcon={<FiLink />} size="sm">
-                  Link
-                </Button>
-              </VStack>
-            </PopoverBody>
-          </PopoverContent>
-        </Popover>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        )}
 
         {/* Desktop HStack */}
-        <HStack display={{ base: "none", md: "flex" }} spacing={3} align="center">
+        <HStack display={{ base: "none", xl: "flex" }} spacing={3} align="center">
           {/* Section 1 - icons */}
           <HStack spacing={2}>
             <IconButton aria-label="Home" icon={<FiHome />} />
@@ -118,11 +124,11 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
 
           {/* Section 2 - text buttons */}
           <HStack spacing={2}>
-                  <Button size="sm" bg="#DDA0DD" color={"white"} paddingY={5} borderRadius={10}>Melding maken</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} paddingY={5} borderRadius={10}>VIM</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} paddingY={5} borderRadius={10}>LMS</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} paddingY={5} borderRadius={10}>BHV</Button>
-                  <Button size="sm" bg={"teal"} color={"white"} paddingY={5} borderRadius={10}>DataLek</Button>
+            <Button size="sm" bg="#DDA0DD" color="white" paddingY={5} borderRadius={10}>Melding maken</Button>
+            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>VIM</Button>
+            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>LMS</Button>
+            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>BHV</Button>
+            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>DataLek</Button>
           </HStack>
 
           {/* Section 3 - link button */}

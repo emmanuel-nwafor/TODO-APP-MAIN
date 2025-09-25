@@ -3,21 +3,22 @@
 import { Box } from "@chakra-ui/react";
 import Sidebar from "./components/layout/Sidebar";
 import Header from "./components/layout/Header";
-import AppLayout from "./components/layout/AppRender";
+import AppLayout from "./components/layout/AppLayout";
 import AppTable from "./components/AppTable"; // Updated import to match the table we created
+import Statistic from "./components/Statistic";
+import TableSearch from "./components/TableSearch";
 
 export default function DashboardPage() {
   return (
     <AppLayout>
       <Box display="flex">
-        {/* Sidebar */}
         <Sidebar />
 
-        {/* Main Content */}
         <Box flex="1" ml={{ base: 0, md: "260px" }}>
           <Header />
+          <TableSearch />
+          <Statistic />
           <Box p={6}>
-            {/* Task Table */}
             <AppTable />
           </Box>
         </Box>
