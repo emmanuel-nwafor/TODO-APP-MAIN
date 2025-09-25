@@ -14,6 +14,20 @@ It was built with **Next.js, TypeScript, Chakra UI, Ark UI, iconsax-reactjs, and
 
 ---
 
+## 📂 Project Setup
+Create a Next.js Project:
+npx create-next-app@latest todo-system --typescript --eslint
+cd todo-system
+
+Install Dependencies:
+npm install
+npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
+npm install @ark-ui/react
+npm install iconsax-react react-icons
+
+Rund the development server:
+npm run dev
+
 ## 📂 Project Structure
 
 ```bash
