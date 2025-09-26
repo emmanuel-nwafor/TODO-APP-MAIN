@@ -44,6 +44,7 @@ import {
   useDisclosure,
   Tooltip,
 } from "@chakra-ui/react";
+// imports from react-icons
 import {
   FiFlag,
   FiMoreVertical,
@@ -84,7 +85,7 @@ const saveToStorage = (tasks: Task[]) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   } catch {
-    /* ignore */
+      console.error("Failed to save tasks to local storage");
   }
 };
 
@@ -157,8 +158,6 @@ const MotionBox = motion(Box);
 
 export default function TaskTable() {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
-  const isTablet = useBreakpointValue({ base: true, md: false });
-
   const [tasks, setTasks] = useState<Task[]>(() => {
     const stored = loadFromStorage();
     if (stored.length) return stored;
@@ -214,7 +213,7 @@ export default function TaskTable() {
     onOpen();
   }
 
-  // save (create or update)
+  // save CRUD
   function handleSave() {
     // form validation
     if (!form.name.trim()) {
@@ -254,7 +253,7 @@ export default function TaskTable() {
     setForm((f) => ({ ...f, assignees: f.assignees.filter((a) => a.name !== name) }));
   }
 
-  // pagination helpers (same style as you wanted)
+  // pagination helpers, for displaying page numbers
   const maxToShow = 5;
   const pageStart = Math.max(1, currentPage - 2);
   const pageEnd = Math.min(totalPages, pageStart + maxToShow - 1);

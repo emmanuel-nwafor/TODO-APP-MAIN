@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, InputGroup, InputLeftElement, Input, IconButton } from "@chakra-ui/react";
+import { Flex, InputGroup, InputLeftElement, Input } from "@chakra-ui/react";
 import { FiSearch } from "react-icons/fi";
 
 export default function TableSearch() {

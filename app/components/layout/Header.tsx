@@ -22,7 +22,6 @@ import {
 import {
   FiSearch,
   FiBell,
-  FiMenu,
   FiLink,
   FiHome,
   FiUser,
@@ -31,7 +30,7 @@ import {
 } from "react-icons/fi";
 
 export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
-  // show popover for base, sm, md, lg; hide for xl
+  // show popover for different screen sizes, ensuring responsiveness
   const showPopover = useBreakpointValue({ base: true, sm: true, md: true, lg: true, xl: false });
 
   return (

@@ -55,7 +55,7 @@ export default function TopHeading() {
         />
 
         {isMobile ? (
-          // Mobile: condensed actions inside a popover
+          // Mobile: show action buttons inside a popover
           <Popover placement="bottom-end">
             <PopoverTrigger>
               <IconButton
