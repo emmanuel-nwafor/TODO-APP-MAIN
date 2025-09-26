@@ -27,15 +27,3 @@ npm install iconsax-react react-icons
 
 Rund the development server:
 npm run dev
-
-## 📂 Project Structure
-
-```bash
-/src
-  /app
-    /todos              # Main Todo pages
-  /components           # Reusable UI + Todo components
-  /hooks                # Custom hooks (useTodos, useLocalStorage)
-  /types                # TypeScript interfaces
-  /lib                  # Utilities & helpers
-  /styles               # Chakra theme overrides
