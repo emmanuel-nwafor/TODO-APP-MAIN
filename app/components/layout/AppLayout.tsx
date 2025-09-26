@@ -8,7 +8,6 @@ interface AppLayoutProps {
 }
 
 export default function Dashboard({ children }: AppLayoutProps) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Flex minH="100vh" bg="gray.50">

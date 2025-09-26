@@ -29,7 +29,7 @@ import {
   FiStar,
 } from "react-icons/fi";
 
-export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
+export default function Header() {
   // show popover for different screen sizes, ensuring responsiveness
   const showPopover = useBreakpointValue({ base: true, sm: true, md: true, lg: true, xl: false });
 
