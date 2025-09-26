@@ -188,7 +188,9 @@ export default function TaskTable() {
   const [editing, setEditing] = useState<Task | null>(null);
 
   // form state
-  const emptyForm: Task = {
+  type TaskForm = Task & { _newAssignee?: string };
+
+  const emptyForm: TaskForm = {
     id: 0,
     name: "",
     startDate: "",
@@ -196,8 +198,10 @@ export default function TaskTable() {
     assignees: [],
     priority: "Medium",
     description: "",
+    _newAssignee: "",
   };
-  const [form, setForm] = useState<Task>(emptyForm);
+
+  const [form, setForm] = useState<TaskForm>(emptyForm);
 
   // open add
   function openAdd() {
@@ -461,20 +465,18 @@ export default function TaskTable() {
                 <HStack>
                   <Input
                     placeholder="Type name and press Add"
-                    value={(form as any)._newAssignee ?? ""}
+                    value={form._newAssignee ?? ""}
                     onChange={(e) =>
-                      setForm((f) => ({ ...f, _newAssignee: e.target.value } as any))
+                      setForm((f) => ({ ...f, _newAssignee: e.target.value }))
                     }
                   />
                   <Button
                     onClick={() => {
-                      addAssigneeFromInput((form as any)._newAssignee || "");
-                      setForm((f) => ({ ...f, _newAssignee: "" } as any));
+                      addAssigneeFromInput(form._newAssignee || "");
+                      setForm((f) => ({ ...f, _newAssignee: "" }));
                     }}
                     leftIcon={<FiUserPlus />}
-                  >
-                    Add
-                  </Button>
+                  />
                 </HStack>
                 <HStack mt={2} spacing={2} flexWrap="wrap">
                   {form.assignees.map((a) => (
