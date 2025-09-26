@@ -40,8 +40,8 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
       align="center"
       justify="space-between"
       px={4}
-      py={2}
-      bg="white"
+      py={5}
+      bg="gray.50"
       borderBottom="1px solid #e2e8f0"
       position="sticky"
       top={0}
@@ -49,13 +49,13 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
       w="full"
     >
       {/* Mobile menu button */}
-      <IconButton
+      {/* <IconButton
         aria-label="Open Menu"
         icon={<FiMenu />}
         display={{ base: "flex", md: "none" }}
         onClick={onMenuClick}
         mr={2}
-      />
+      /> */}
 
       {/* Search section */}
       <Flex flex="1" align="center" justify="space-between" maxW="full" px={4} py={2}>
@@ -65,7 +65,7 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
             <InputLeftElement pointerEvents="none">
               <FiSearch color="gray" />
             </InputLeftElement>
-            <Input placeholder="Search..." />
+            <Input placeholder="Search.." />
           </InputGroup>
         </Box>
 
@@ -93,11 +93,11 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
 
                   {/* Section 2 - text buttons */}
                   <VStack spacing={2} align="stretch">
-                    <Button size="sm" bg="#DDA0DD" color="white" borderRadius={10}>Melding maken</Button>
-                    <Button size="sm" bg="teal" color="white" borderRadius={10}>VIM</Button>
-                    <Button size="sm" bg="teal" color="white" borderRadius={10}>LMS</Button>
-                    <Button size="sm" bg="teal" color="white" borderRadius={10}>BHV</Button>
-                    <Button size="sm" bg="teal" color="white" borderRadius={10}>DataLek</Button>
+                    <Button size="sm" bg="#800080" color="white" borderRadius={10}>Melding maken</Button>
+                    <Button size="sm" bg="teal.500" color="white" borderRadius={10}>VIM</Button>
+                    <Button size="sm" bg="teal.500" color="white" borderRadius={10}>LMS</Button>
+                    <Button size="sm" bg="teal.500" color="white" borderRadius={10}>BHV</Button>
+                    <Button size="sm" bg="teal.500" color="white" borderRadius={10}>DataLek</Button>
                   </VStack>
 
                   <Divider />
@@ -117,26 +117,28 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
           {/* Section 1 - icons */}
           <HStack spacing={2}>
             <IconButton aria-label="Home" icon={<FiHome />} />
-            <IconButton aria-label="User" icon={<FiUser />} />
+            <IconButton aria-label="3CX" icon={<FiUser />} />
             <IconButton aria-label="Settings" icon={<FiSettings />} />
-            <IconButton aria-label="Star" icon={<FiStar />} />
           </HStack>
 
           {/* Section 2 - text buttons */}
           <HStack spacing={2}>
-            <Button size="sm" bg="#DDA0DD" color="white" paddingY={5} borderRadius={10}>Melding maken</Button>
-            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>VIM</Button>
-            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>LMS</Button>
-            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>BHV</Button>
-            <Button size="sm" bg="teal" color="white" paddingY={5} borderRadius={10}>DataLek</Button>
+            <Button size="sm" bg="#800080" color="white" px={6} py={2} borderRadius={10}>Melding maken</Button>
+            <Button size="sm" bg="teal.500" color="white" px={6} py={2} borderRadius={10}>VIM</Button>
+            <Button size="sm" bg="teal.500" color="white" px={6} py={2} borderRadius={10}>LMS</Button>
+            <Button size="sm" bg="teal.500" color="white" px={6} py={2} borderRadius={10}>BHV</Button>
+            <Button size="sm" bg="teal.500" color="white" px={6} py={2} borderRadius={10}>DataLek</Button>
           </HStack>
 
-          {/* Section 3 - link button */}
-          <Button leftIcon={<FiLink />} size="md" />
+          {/* Section 3 - link button and avatar */}
+          <HStack spacing={2}>
+            <IconButton aria-label="Minimize" icon={<FiBell />} variant="ghost" />
+            <Avatar size="sm" name="Paul" src="/paul.jpg" />
+          </HStack>
         </HStack>
 
         {/* Avatar */}
-        <Avatar size="sm" name="Paul" src="/paul.jpg" />
+        <Avatar size="sm" name="Paul" src="/paul.jpg" display={{ base: "flex", xl: "none" }} />
       </Flex>
     </Flex>
   );

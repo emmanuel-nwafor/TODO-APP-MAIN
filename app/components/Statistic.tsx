@@ -20,7 +20,7 @@ export default function Statistic() {
 
   const stats = [
     { label: "ToDo", icon: FiCheckSquare, count: 20, color: "purple.200" },
-    { label: "InProgress", icon: FiClock, count: 23, color: "yellow.200" },
+    { label: "In Progress", icon: FiClock, count: 23, color: "yellow.200" },
     { label: "Complete", icon: FiCheckCircle, count: 18, color: "teal.200" },
   ];
 

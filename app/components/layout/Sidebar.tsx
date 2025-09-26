@@ -62,8 +62,8 @@ export default function Sidebar() {
         <Image
           src="https://res.cloudinary.com/dqtjja88b/image/upload/v1758807223/todo-app-logo-removebg-preview_hzybso.png"
           alt="App Logo"
-          width={160}
-          height={50}
+          width={170}
+          height={70}
           style={{ objectFit: "contain", margin: "0 auto" }}
         />
       </Box>
